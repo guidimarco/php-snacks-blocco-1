@@ -3,19 +3,35 @@
     // GLOBAL VAR
     $matches = [
         [ // match 1
-            "milano" => 88,
-            "bologna" => 102
+            "vanoli basket cremona" => 80,
+            "openjobmetis varese" => 67
         ],
         [
-            "ferrara" => 55,
-            "bologna" => 80
+            "carpegna prosciutto pesaro" => 57,
+            "dolomiti energia trentino" => 71
         ],
         [
-            "lucca" => 80,
-            "bologna" => 70
+            "banco di sardegna sassari" => 89,
+            "fortitudo lavoropiù bologna" => 86
+        ],
+        [
+            "virtus segafredo bologna" => 67,
+            "unahotels reggio emilia" => 77
+        ],
+        [
+            "acqua s. bernardo cantù" => 65,
+            "umana reyer venezia" => 75
+        ],
+        [
+            "happy casa brindisi" => 99,
+            "de' longhi treviso basket" => 83
+        ],
+        [
+            "germani brescia" => 75,
+            "allianz pallacanestro trieste" => 63
         ],
     ]; // framework:: ["home_team" => score, "vis_team" => score], [...],
-    var_dump($matches);
+    // var_dump($matches);
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -34,7 +50,7 @@
                     // get current scores
                     $this_match_scores = array_values($matches[$i]);
 
-                    echo nl2br("\n" . $this_match_teams[0] . " - " . $this_match_teams[1] . " | " . $this_match_scores[0] . " - " . $this_match_scores[1]);
+                    echo nl2br("\n" . ucwords($this_match_teams[0]) . " - " . ucwords($this_match_teams[1]) . " | " . $this_match_scores[0] . " - " . $this_match_scores[1]);
                 }
             ?>
         </p>
