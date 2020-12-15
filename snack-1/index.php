@@ -20,7 +20,15 @@
     var_dump($matches);
 
     for ($i=0; $i < count($matches); $i++) {
-        var_dump($matches[$i]);
+        // var_dump($matches[$i]);
+        $this_match_teams = array_keys($matches[$i]);
+        $this_match_scores = array_values($matches[$i]);
+
+        // var_dump($this_match_teams);
+        // var_dump($this_match_scores);
+
+        var_dump($this_match_teams[0] . " - " . $this_match_teams[1] . " | " . $this_match_scores[0] . " - " . $this_match_scores[1]);
+
     }
 
 ?>
