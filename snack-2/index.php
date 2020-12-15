@@ -1,21 +1,23 @@
 <?php
     // address-bar: ?name=pippo&mail=pippo@gmail.com&age=22
+
+    // GET
     $user_info = $_GET; // array of user's info
     var_dump($user_info);
 
+    // GLOBAL VAR
+    $logIn_msg = "";
 
-    // name check
-    if (strlen(trim($user_info["name"])) > 3) {
-        echo "nome OK";
+    // NAME CHECK, verify if "name" length is > 3
+    // MAIL CHECK, verify if "mail" includes "." and "@"
+    // AGE CHECK, verify if it's a number
+    if (/* NAME CHECK */ strlen(trim($user_info["name"])) > 3
+    && /* MAIL CHECK */ strpos($user_info["mail"], ".") !== false && strpos($user_info["mail"], "@")
+    && /* AGE CHECK */ is_numeric($user_info["age"])) {
+        $logIn_msg = "Accesso riuscito";
+    } else {
+        $logIn_msg = "Accesso negato";
     }
-
-    // mail check
-    if (strpos($user_info["mail"], ".") !== false && strpos($user_info["mail"], "@")) {
-        echo "mail OK";
-    }
-
-
-
 
 ?>
 <!DOCTYPE html>
@@ -29,6 +31,8 @@
         <!-- <p><?php var_dump($user_info) ?></p>
         <p><?php echo strlen($user_info["name"]) ?></p>
         <p><?php echo strlen(trim($user_info["name"])) ?></p> -->
+
+        <p><?php echo $logIn_msg; ?></p>
 
     </body>
 </html>
