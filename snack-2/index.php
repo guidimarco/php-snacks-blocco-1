@@ -8,11 +8,8 @@
     // GLOBAL VAR
     $logIn_msg = "";
 
-    // MAIL CHECK, verify if "mail" includes "." and "@"
     // AGE CHECK, verify if it's a number
-    if (is_correct_name($user_info["name"])
-    && /* MAIL CHECK */ strpos($user_info["mail"], ".") !== false && strpos($user_info["mail"], "@")
-    && /* AGE CHECK */ is_numeric($user_info["age"])) {
+    if (is_correct_name($user_info["name"]) && is_correct_mail($user_info["mail"]) && /* AGE CHECK */ is_numeric($user_info["age"])) {
         $logIn_msg = "Accesso riuscito";
     } else {
         $logIn_msg = "Accesso negato";
@@ -33,6 +30,15 @@
         }
 
         return $is_correct;
+    };
+    function is_correct_mail($mail) {
+        // return true if is correct
+        // condition: (1) include "." (2) includes "@"
+
+        // LOCAL VAR
+        $current_mail = trim($mail);
+
+        return strpos($current_mail, ".") !== false && strpos($current_mail, "@") !== false;
     };
 ?>
 <!DOCTYPE html>
