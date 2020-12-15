@@ -8,10 +8,9 @@
     // GLOBAL VAR
     $logIn_msg = "";
 
-    // NAME CHECK, verify if "name" length is > 3
     // MAIL CHECK, verify if "mail" includes "." and "@"
     // AGE CHECK, verify if it's a number
-    if (/* NAME CHECK */ strlen(trim($user_info["name"])) > 3
+    if (is_correct_name($user_info["name"])
     && /* MAIL CHECK */ strpos($user_info["mail"], ".") !== false && strpos($user_info["mail"], "@")
     && /* AGE CHECK */ is_numeric($user_info["age"])) {
         $logIn_msg = "Accesso riuscito";
@@ -19,6 +18,22 @@
         $logIn_msg = "Accesso negato";
     }
 
+    // FUNCTION
+    function is_correct_name($name) {
+        // return true if is correct
+        // condition: 1) length is > min-charters
+
+        // LOCAL VAR
+        $current_name = trim($name);
+        $min_characters = 3; // minimum numbers of charters admitted
+        $is_correct = false; // boolean var to return
+
+        if (strlen($current_name) > $min_characters) {
+            $is_correct = true;
+        }
+
+        return $is_correct;
+    };
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">

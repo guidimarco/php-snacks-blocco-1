@@ -31,7 +31,6 @@
             "allianz pallacanestro trieste" => 63
         ],
     ]; // framework:: ["home_team" => score, "vis_team" => score], [...],
-    // var_dump($matches);
 
     // FUNCTION
     function stamp_matches($array_matches) {
