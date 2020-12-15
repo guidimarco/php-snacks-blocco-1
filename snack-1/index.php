@@ -2,8 +2,7 @@
 
     // GLOBAL VAR
     $matches = [
-        // framework => matches(array) -> ["home_team" => score, "vis_team" => score], [...],
-        [
+        [ // match 1
             "milano" => 88,
             "bologna" => 102
         ],
@@ -15,22 +14,8 @@
             "lucca" => 80,
             "bologna" => 70
         ],
-    ];
-
+    ]; // framework:: ["home_team" => score, "vis_team" => score], [...],
     var_dump($matches);
-
-    for ($i=0; $i < count($matches); $i++) {
-        // var_dump($matches[$i]);
-        $this_match_teams = array_keys($matches[$i]);
-        $this_match_scores = array_values($matches[$i]);
-
-        // var_dump($this_match_teams);
-        // var_dump($this_match_scores);
-
-        var_dump($this_match_teams[0] . " - " . $this_match_teams[1] . " | " . $this_match_scores[0] . " - " . $this_match_scores[1]);
-
-    }
-
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -39,9 +24,19 @@
         <title>Snack-1</title>
     </head>
     <body>
-        <h1>Log-in</h1>
+        <h1>Last matchweek results</h1>
         <p>
+            <?php
+                for ($i=0; $i < count($matches); $i++) {
+                    // get current teams
+                    $this_match_teams = array_keys($matches[$i]);
 
+                    // get current scores
+                    $this_match_scores = array_values($matches[$i]);
+
+                    echo nl2br("\n" . $this_match_teams[0] . " - " . $this_match_teams[1] . " | " . $this_match_scores[0] . " - " . $this_match_scores[1]);
+                }
+            ?>
         </p>
 
     </body>
