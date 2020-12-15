@@ -56,7 +56,7 @@
 
             echo nl2br("\n" . ucwords($this_match["home"]) . " - " . ucwords($this_match["vis"]) . " | " . $this_match["home_score"] . " - " . $this_match["vis_score"]);
         }
-    }
+    };
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
