@@ -32,6 +32,21 @@
         ],
     ]; // framework:: ["home_team" => score, "vis_team" => score], [...],
     // var_dump($matches);
+
+    // FUNCTION
+    function stamp_matches($array_matches) {
+        // stamp all the matches
+
+        for ($i=0; $i < count($array_matches); $i++) {
+            // get current teams
+            $this_match_teams = array_keys($array_matches[$i]);
+
+            // get current scores
+            $this_match_scores = array_values($array_matches[$i]);
+
+            echo nl2br("\n" . ucwords($this_match_teams[0]) . " - " . ucwords($this_match_teams[1]) . " | " . $this_match_scores[0] . " - " . $this_match_scores[1]);
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -43,15 +58,7 @@
         <h1>Last matchweek results</h1>
         <p>
             <?php
-                for ($i=0; $i < count($matches); $i++) {
-                    // get current teams
-                    $this_match_teams = array_keys($matches[$i]);
-
-                    // get current scores
-                    $this_match_scores = array_values($matches[$i]);
-
-                    echo nl2br("\n" . ucwords($this_match_teams[0]) . " - " . ucwords($this_match_teams[1]) . " | " . $this_match_scores[0] . " - " . $this_match_scores[1]);
-                }
+                stamp_matches($matches);
             ?>
         </p>
 
